@@ -1,0 +1,57 @@
+
+!New Monitor.fdr_05410_Mon_VI  element=line.fdr_05410 term=1  mode=0 Residual=Yes
+
+!New Monitor.fdr_05410_Mon_PQ  element=line.fdr_05410 term=1  mode=1 PPolar=No
+
+!New Monitor.fdr_05410_Mon_VA  element=line.fdr_05410 term=1  mode=1 PPolar=Yes
+
+!New Monitor.Other_Feeders element=Line.Other_Feeders term=1  mode=1 PPolar=No
+
+
+!New energymeter.fdr_05410 element=line.fdr_05410 term=1 option=R action=C PhaseVolt=YES peakcurrent=(466,469,452)
+
+!New monitor.G2101BA6700_N283900_sec_1 element=load.3109000 terminal=1 mode=0
+
+!New energymeter.fdr_05410 element=line.fdr_05410 term=1 option=R action=C PhaseVolt=YES peakcurrent=(466,469,452)
+
+/*
+!new PVsystem.pv phases=1 Bus1=G2101BA6700_N283900_sec_1.1 conn=wye kV = 0.24 pf=0.92 kVA=100 daily=pv_shape
+
+New Loadshape.storageShape  npts=24  interval=0.5 mult=[0 0 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 0.5 0.5 0.94 1 0.94 0 0 0 ]
+
+Define the storage element and dispatch it in "follow" mode
+
+New Storage.Battery phases=1 Bus1=G2101BA6700_N283900_sec_1.1 kV=0.24     kWrated=350  kWhrated=2000 
+~ dispmode=follow  daily=storageShape
+*/
+
+set mode = yearly
+set stepsize = 1h
+set number = 720
+
+!new Monitor.n1385286.3 element=Transformer.step_05410_G2100CI3100 terminal=1 mode=0
+
+new energymeter.05410_G2100CI3100 element=Transformer.step_05410_G2100CI3100 terminal=1
+
+
+!n283544.3
+!new Monitor.G2000XE9500_N283544_sec_1 element=load.2450100 terminal=1 mode=0
+
+!n283582.3
+!new Monitor.G2000XF7700_N283582_sec_1 element=load.790350100 terminal=1 mode=0
+
+!n283612.3
+!new Monitor.G2000XG5800_N283612_sec_1 element=load.30450100 terminal=1 mode=0
+
+!n283636.3
+!new Monitor.G2000XH7500_N283636_sec_1 element=load.158450100 terminal=1 mode=0
+
+!n283651.3
+!new Monitor.G2100AH6800_N283651_sec_1 element=load.111450100 terminal=1 mode=0
+
+!n283665.3
+!new Monitor.G2100BH3900_N283665_sec_1 element=load.250992200 terminal=1 mode=0
+
+!n1385522.3
+!new Monitor.G2100CH1800_N1385522_sec_1 element=load.102450100 terminal=1 mode=0
+
