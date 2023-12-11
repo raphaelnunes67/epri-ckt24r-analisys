@@ -33,7 +33,6 @@ def perform_case_base(dss_main_file, target_buses, transformer_buses_id):
         plotter.set_axis(x='hour', y1='V1')
         plotter.set_labels(l1='V1')
         plotter.set_axis_name(x_name='Time (h)', y_name='Voltage (V)')
-        plotter.set_title(f'Tensão - Monitor no secundário de {transformer_buses_id[index]}')
         plotter.perform_plot()
         plotter.show_max_min('V1', 'hour')
         plotter.configure_output(show_legend=False, show_grid=True, limit_up_y=252, limit_down_y=228)
@@ -46,7 +45,6 @@ def perform_case_base(dss_main_file, target_buses, transformer_buses_id):
         plotter.set_axis(x='hour', y1='I1')
         plotter.set_labels(l1='I1')
         plotter.set_axis_name(x_name='Time (h)', y_name='Current (I)')
-        plotter.set_title(f'Corrente - Monitor no secundário de {transformer_buses_id[index]}')
         plotter.perform_plot()
         plotter.show_max_min('I1', 'hour')
         plotter.configure_output(show_legend=False, show_grid=True)
@@ -91,7 +89,6 @@ def perform_case_with_pv(dss_main_file, target_buses, gd_saeb_buses, gd_saeb_bus
             plotter.set_axis(x='hour', y1='V1')
             plotter.set_labels(l1='V1')
             plotter.set_axis_name(x_name='Time (h)', y_name='Voltage (V)')
-            plotter.set_title(f'Tensão - Monitor no secundário de {transformer_buses_id[index]}')
             plotter.perform_plot()
             plotter.show_max_min('V1', 'hour')
             plotter.configure_output(show_legend=False, show_grid=True, limit_up_y=252, limit_down_y=228)
@@ -105,7 +102,6 @@ def perform_case_with_pv(dss_main_file, target_buses, gd_saeb_buses, gd_saeb_bus
             plotter.set_axis(x='hour', y1='I1')
             plotter.set_labels(l1='I1')
             plotter.set_axis_name(x_name='Time (h)', y_name='Current (I)')
-            plotter.set_title(f'Corrente - Monitor no secundário de {transformer_buses_id[index]}')
             plotter.perform_plot()
             plotter.show_max_min('I1', 'hour')
             plotter.configure_output(show_legend=False, show_grid=True)
@@ -157,7 +153,6 @@ def perform_case_with_pv_and_voltwatt(dss_main_file, target_buses, gd_saeb_buses
             plotter.set_axis(x='hour', y1='V1')
             plotter.set_labels(l1='V1')
             plotter.set_axis_name(x_name='Time (h)', y_name='Voltage (V)')
-            plotter.set_title(f'Tensão - Monitor no secundário de {transformer_buses_id[index]}')
             plotter.perform_plot()
             plotter.show_max_min('V1', 'hour')
             plotter.configure_output(show_legend=False, show_grid=True, limit_up_y=252, limit_down_y=228)
@@ -171,7 +166,6 @@ def perform_case_with_pv_and_voltwatt(dss_main_file, target_buses, gd_saeb_buses
             plotter.set_axis(x='hour', y1='I1')
             plotter.set_labels(l1='I1')
             plotter.set_axis_name(x_name='Time (h)', y_name='Current (I)')
-            plotter.set_title(f'Corrente - Monitor no secundário de {transformer_buses_id[index]}')
             plotter.perform_plot()
             plotter.show_max_min('I1', 'hour')
             plotter.configure_output(show_legend=False, show_grid=True)
@@ -222,7 +216,6 @@ def perform_case_with_pv_and_voltvar(dss_main_file, target_buses, gd_saeb_buses,
             plotter.set_axis(x='hour', y1='V1')
             plotter.set_labels(l1='V1')
             plotter.set_axis_name(x_name='Time (h)', y_name='Voltage (V)')
-            plotter.set_title(f'Tensão - Monitor no secundário de {transformer_buses_id[index]}')
             plotter.perform_plot()
             plotter.show_max_min('V1', 'hour')
             plotter.configure_output(show_legend=False, show_grid=True, limit_up_y=252, limit_down_y=228)
@@ -230,19 +223,18 @@ def perform_case_with_pv_and_voltvar(dss_main_file, target_buses, gd_saeb_buses,
             # plotter.show_figure()
             plotter.close_figure()
 
-            plotter = Plotter()
-            plotter.set_file(
-                str(Path(f'{dss_main_folder}/ckt24_Mon_{bus}_PV_VOLTVAR_{gd_saeb_buses_id[index]}_1.csv').resolve()))
-            plotter.set_axis(x='hour', y1='I1')
-            plotter.set_labels(l1='I1')
-            plotter.set_axis_name(x_name='Time (h)', y_name='Current (I)')
-            plotter.set_title(f'Corrente - Monitor no secundário de {transformer_buses_id[index]}')
-            plotter.perform_plot()
-            plotter.show_max_min('I1', 'hour')
-            plotter.configure_output(show_legend=False, show_grid=True)
-            plotter.save_figure(f'{bus}_{gd_saeb_buses_id[index]}_case_with_pv_voltvar_current')
-            # plotter.show_figure()
-            plotter.close_figure()
+            # plotter = Plotter()
+            # plotter.set_file(
+            #     str(Path(f'{dss_main_folder}/ckt24_Mon_{bus}_PV_VOLTVAR_{gd_saeb_buses_id[index]}_1.csv').resolve()))
+            # plotter.set_axis(x='hour', y1='I1')
+            # plotter.set_labels(l1='I1')
+            # plotter.set_axis_name(x_name='Time (h)', y_name='Current (I)')
+            # plotter.perform_plot()
+            # plotter.show_max_min('I1', 'hour')
+            # plotter.configure_output(show_legend=False, show_grid=True)
+            # plotter.save_figure(f'{bus}_{gd_saeb_buses_id[index]}_case_with_pv_voltvar_current')
+            # # plotter.show_figure()
+            # plotter.close_figure()
 
 
 def perform_with_saeb(dss_main_file, target_buses, gd_saeb_buses, gd_saeb_buses_id,
@@ -287,7 +279,6 @@ def perform_with_saeb(dss_main_file, target_buses, gd_saeb_buses, gd_saeb_buses_
             plotter.set_axis(x='hour', y1='V1')
             plotter.set_labels(l1='V1')
             plotter.set_axis_name(x_name='Time (h)', y_name='Voltage (V)')
-            plotter.set_title(f'Tensão - Monitor no secundário de {transformer_buses_id[index]}')
             plotter.perform_plot()
             plotter.show_max_min('V1', 'hour')
             plotter.configure_output(show_legend=False, show_grid=True, limit_up_y=252, limit_down_y=228)
@@ -295,19 +286,18 @@ def perform_with_saeb(dss_main_file, target_buses, gd_saeb_buses, gd_saeb_buses_
             # plotter.show_figure()
             plotter.close_figure()
 
-            plotter = Plotter()
-            plotter.set_file(
-                str(Path(f'{dss_main_folder}/ckt24_Mon_{bus}_SAEB_{gd_saeb_buses_id[index]}_1.csv').resolve()))
-            plotter.set_axis(x='hour', y1='I1')
-            plotter.set_labels(l1='I1')
-            plotter.set_axis_name(x_name='Time (h)', y_name='Current (I)')
-            plotter.set_title(f'Corrente - Monitor no secundário de {transformer_buses_id[index]}')
-            plotter.perform_plot()
-            plotter.show_max_min('I1', 'hour')
-            plotter.configure_output(show_legend=False, show_grid=True)
-            plotter.save_figure(f'{bus}_{gd_saeb_buses_id[index]}_case_with_saeb_current')
-            # plotter.show_figure()
-            plotter.close_figure()
+            # plotter = Plotter()
+            # plotter.set_file(
+            #     str(Path(f'{dss_main_folder}/ckt24_Mon_{bus}_SAEB_{gd_saeb_buses_id[index]}_1.csv').resolve()))
+            # plotter.set_axis(x='hour', y1='I1')
+            # plotter.set_labels(l1='I1')
+            # plotter.set_axis_name(x_name='Time (h)', y_name='Current (I)')
+            # plotter.perform_plot()
+            # plotter.show_max_min('I1', 'hour')
+            # plotter.configure_output(show_legend=False, show_grid=True)
+            # plotter.save_figure(f'{bus}_{gd_saeb_buses_id[index]}_case_with_saeb_current')
+            # # plotter.show_figure()
+            # plotter.close_figure()
 
 
 def perform_with_saeb_voltwatt(dss_main_file, target_buses, gd_saeb_buses, gd_saeb_buses_id,
@@ -353,7 +343,6 @@ def perform_with_saeb_voltwatt(dss_main_file, target_buses, gd_saeb_buses, gd_sa
             plotter.set_axis(x='hour', y1='V1')
             plotter.set_labels(l1='V1')
             plotter.set_axis_name(x_name='Time (h)', y_name='Voltage (V)')
-            plotter.set_title(f'Tensão - Monitor no secundário de {transformer_buses_id[index]}')
             plotter.perform_plot()
             plotter.show_max_min('V1', 'hour')
             plotter.configure_output(show_legend=False, show_grid=True, limit_up_y=252, limit_down_y=228)
@@ -361,19 +350,18 @@ def perform_with_saeb_voltwatt(dss_main_file, target_buses, gd_saeb_buses, gd_sa
             # plotter.show_figure()
             plotter.close_figure()
 
-            plotter = Plotter()
-            plotter.set_file(
-                str(Path(f'{dss_main_folder}/ckt24_Mon_{bus}_SAEB_VOLTWATT_{gd_saeb_buses_id[index]}_1.csv').resolve()))
-            plotter.set_axis(x='hour', y1='I1')
-            plotter.set_labels(l1='I1')
-            plotter.set_axis_name(x_name='Time (h)', y_name='Current (I)')
-            plotter.set_title(f'Corrente - Monitor no secundário de {transformer_buses_id[index]}')
-            plotter.perform_plot()
-            plotter.show_max_min('I1', 'hour')
-            plotter.configure_output(show_legend=False, show_grid=True)
-            plotter.save_figure(f'{bus}_{gd_saeb_buses_id[index]}_case_with_saeb_voltwatt_current')
-            # plotter.show_figure()
-            plotter.close_figure()
+            # plotter = Plotter()
+            # plotter.set_file(
+            #     str(Path(f'{dss_main_folder}/ckt24_Mon_{bus}_SAEB_VOLTWATT_{gd_saeb_buses_id[index]}_1.csv').resolve()))
+            # plotter.set_axis(x='hour', y1='I1')
+            # plotter.set_labels(l1='I1')
+            # plotter.set_axis_name(x_name='Time (h)', y_name='Current (I)')
+            # plotter.perform_plot()
+            # plotter.show_max_min('I1', 'hour')
+            # plotter.configure_output(show_legend=False, show_grid=True)
+            # plotter.save_figure(f'{bus}_{gd_saeb_buses_id[index]}_case_with_saeb_voltwatt_current')
+            # # plotter.show_figure()
+            # plotter.close_figure()
 
 
 def perform_with_saeb_voltvar(dss_main_file, target_buses, gd_saeb_buses, gd_saeb_buses_id,
@@ -422,7 +410,6 @@ def perform_with_saeb_voltvar(dss_main_file, target_buses, gd_saeb_buses, gd_sae
             plotter.set_axis(x='hour', y1='V1')
             plotter.set_labels(l1='V1')
             plotter.set_axis_name(x_name='Time (h)', y_name='Voltage (V)')
-            plotter.set_title(f'Tensão - Monitor no secundário de {transformer_buses_id[index]}')
             plotter.perform_plot()
             plotter.show_max_min('V1', 'hour')
             plotter.configure_output(show_legend=False, show_grid=True, limit_up_y=252, limit_down_y=228)
@@ -430,19 +417,18 @@ def perform_with_saeb_voltvar(dss_main_file, target_buses, gd_saeb_buses, gd_sae
             # plotter.show_figure()
             plotter.close_figure()
 
-            plotter = Plotter()
-            plotter.set_file(
-                str(Path(f'{dss_main_folder}/ckt24_Mon_{bus}_SAEB_VOLTVAR_{gd_saeb_buses_id[index]}_1.csv').resolve()))
-            plotter.set_axis(x='hour', y1='I1')
-            plotter.set_labels(l1='I1')
-            plotter.set_axis_name(x_name='Time (h)', y_name='Current (I)')
-            plotter.set_title(f'Corrente - Monitor no secundário de {transformer_buses_id[index]}')
-            plotter.perform_plot()
-            plotter.show_max_min('I1', 'hour')
-            plotter.configure_output(show_legend=False, show_grid=True)
-            plotter.save_figure(f'{bus}_{gd_saeb_buses_id[index]}_case_with_saeb_voltvar_current')
-            # plotter.show_figure()
-            plotter.close_figure()
+            # plotter = Plotter()
+            # plotter.set_file(
+            #     str(Path(f'{dss_main_folder}/ckt24_Mon_{bus}_SAEB_VOLTVAR_{gd_saeb_buses_id[index]}_1.csv').resolve()))
+            # plotter.set_axis(x='hour', y1='I1')
+            # plotter.set_labels(l1='I1')
+            # plotter.set_axis_name(x_name='Time (h)', y_name='Current (I)')
+            # plotter.perform_plot()
+            # plotter.show_max_min('I1', 'hour')
+            # plotter.configure_output(show_legend=False, show_grid=True)
+            # plotter.save_figure(f'{bus}_{gd_saeb_buses_id[index]}_case_with_saeb_voltvar_current')
+            # # plotter.show_figure()
+            # plotter.close_figure()
 
 
 def perform_with_saeb_pv(dss_main_file, target_buses, gd_saeb_buses, gd_saeb_buses_id, transformer_buses_id):
@@ -485,7 +471,6 @@ def perform_with_saeb_pv(dss_main_file, target_buses, gd_saeb_buses, gd_saeb_bus
             plotter.set_axis(x='hour', y1='V1')
             plotter.set_labels(l1='V1')
             plotter.set_axis_name(x_name='Time (h)', y_name='Voltage (V)')
-            plotter.set_title(f'Tensão - Monitor no secundário de {transformer_buses_id[index]}')
             plotter.perform_plot()
             plotter.show_max_min('V1', 'hour')
             plotter.configure_output(show_legend=False, show_grid=True, limit_up_y=252, limit_down_y=228)
@@ -493,19 +478,18 @@ def perform_with_saeb_pv(dss_main_file, target_buses, gd_saeb_buses, gd_saeb_bus
             # plotter.show_figure()
             plotter.close_figure()
 
-            plotter = Plotter()
-            plotter.set_file(
-                str(Path(f'{dss_main_folder}/ckt24_Mon_{bus}_SAEB_PV_{gd_saeb_buses_id[index]}_1.csv').resolve()))
-            plotter.set_axis(x='hour', y1='I1')
-            plotter.set_labels(l1='I1')
-            plotter.set_axis_name(x_name='Time (h)', y_name='Current (I)')
-            plotter.set_title(f'Corrente - Monitor no secundário de {transformer_buses_id[index]}')
-            plotter.perform_plot()
-            plotter.show_max_min('I1', 'hour')
-            plotter.configure_output(show_legend=False, show_grid=True)
-            plotter.save_figure(f'{bus}_{gd_saeb_buses_id[index]}_case_with_saeb_pv_current')
-            # plotter.show_figure()
-            plotter.close_figure()
+            # plotter = Plotter()
+            # plotter.set_file(
+            #     str(Path(f'{dss_main_folder}/ckt24_Mon_{bus}_SAEB_PV_{gd_saeb_buses_id[index]}_1.csv').resolve()))
+            # plotter.set_axis(x='hour', y1='I1')
+            # plotter.set_labels(l1='I1')
+            # plotter.set_axis_name(x_name='Time (h)', y_name='Current (I)')
+            # plotter.perform_plot()
+            # plotter.show_max_min('I1', 'hour')
+            # plotter.configure_output(show_legend=False, show_grid=True)
+            # plotter.save_figure(f'{bus}_{gd_saeb_buses_id[index]}_case_with_saeb_pv_current')
+            # # plotter.show_figure()
+            # plotter.close_figure()
 
 
 def perform_with_saeb_pv_voltwatt(dss_main_file, target_buses, gd_saeb_buses, gd_saeb_buses_id, transformer_buses_id):
@@ -554,7 +538,6 @@ def perform_with_saeb_pv_voltwatt(dss_main_file, target_buses, gd_saeb_buses, gd
             plotter.set_axis(x='hour', y1='V1')
             plotter.set_labels(l1='V1')
             plotter.set_axis_name(x_name='Time (h)', y_name='Voltage (V)')
-            plotter.set_title(f'Tensão - Monitor no secundário de {transformer_buses_id[index]}')
             plotter.perform_plot()
             plotter.show_max_min('V1', 'hour')
             plotter.configure_output(show_legend=False, show_grid=True, limit_up_y=252, limit_down_y=228)
@@ -562,20 +545,19 @@ def perform_with_saeb_pv_voltwatt(dss_main_file, target_buses, gd_saeb_buses, gd
             # plotter.show_figure()
             plotter.close_figure()
 
-            plotter = Plotter()
-            plotter.set_file(
-                str(Path(
-                    f'{dss_main_folder}/ckt24_Mon_{bus}_SAEB_PV_VOLTWATT_{gd_saeb_buses_id[index]}_1.csv').resolve()))
-            plotter.set_axis(x='hour', y1='I1')
-            plotter.set_labels(l1='I1')
-            plotter.set_axis_name(x_name='Time (h)', y_name='Current (I)')
-            plotter.set_title(f'Corrente - Monitor no secundário de {transformer_buses_id[index]}')
-            plotter.perform_plot()
-            plotter.show_max_min('I1', 'hour')
-            plotter.configure_output(show_legend=False, show_grid=True)
-            plotter.save_figure(f'{bus}_{gd_saeb_buses_id[index]}_case_with_saeb_pv_voltwatt_current')
-            # plotter.show_figure()
-            plotter.close_figure()
+            # plotter = Plotter()
+            # plotter.set_file(
+            #     str(Path(
+            #         f'{dss_main_folder}/ckt24_Mon_{bus}_SAEB_PV_VOLTWATT_{gd_saeb_buses_id[index]}_1.csv').resolve()))
+            # plotter.set_axis(x='hour', y1='I1')
+            # plotter.set_labels(l1='I1')
+            # plotter.set_axis_name(x_name='Time (h)', y_name='Current (I)')
+            # plotter.perform_plot()
+            # plotter.show_max_min('I1', 'hour')
+            # plotter.configure_output(show_legend=False, show_grid=True)
+            # plotter.save_figure(f'{bus}_{gd_saeb_buses_id[index]}_case_with_saeb_pv_voltwatt_current')
+            # # plotter.show_figure()
+            # plotter.close_figure()
 
 
 def perform_with_saeb_pv_voltvar(dss_main_file, target_buses, gd_saeb_buses, gd_saeb_buses_id, transformer_buses_id):
@@ -619,7 +601,6 @@ def perform_with_saeb_pv_voltvar(dss_main_file, target_buses, gd_saeb_buses, gd_
             plotter.set_axis(x='hour', y1='V1')
             plotter.set_labels(l1='V1')
             plotter.set_axis_name(x_name='Time (h)', y_name='Voltage (V)')
-            plotter.set_title(f'Tensão - Monitor no secundário de {transformer_buses_id[index]}')
             plotter.perform_plot()
             plotter.show_max_min('V1', 'hour')
             plotter.configure_output(show_legend=False, show_grid=True, limit_up_y=252, limit_down_y=228)
@@ -627,20 +608,19 @@ def perform_with_saeb_pv_voltvar(dss_main_file, target_buses, gd_saeb_buses, gd_
             # plotter.show_figure()
             plotter.close_figure()
 
-            plotter = Plotter()
-            plotter.set_file(
-                str(Path(
-                    f'{dss_main_folder}/ckt24_Mon_{bus}_SAEB_PV_VOLTVAR_{gd_saeb_buses_id[index]}_1.csv').resolve()))
-            plotter.set_axis(x='hour', y1='I1')
-            plotter.set_labels(l1='I1')
-            plotter.set_axis_name(x_name='Time (h)', y_name='Current (I)')
-            plotter.set_title(f'Corrente - Monitor no secundário de {transformer_buses_id[index]}')
-            plotter.perform_plot()
-            plotter.show_max_min('I1', 'hour')
-            plotter.configure_output(show_legend=False, show_grid=True)
-            plotter.save_figure(f'{bus}_{gd_saeb_buses_id[index]}_case_with_saeb_pv_voltvar_current')
-            # plotter.show_figure()
-            plotter.close_figure()
+            # plotter = Plotter()
+            # plotter.set_file(
+            #     str(Path(
+            #         f'{dss_main_folder}/ckt24_Mon_{bus}_SAEB_PV_VOLTVAR_{gd_saeb_buses_id[index]}_1.csv').resolve()))
+            # plotter.set_axis(x='hour', y1='I1')
+            # plotter.set_labels(l1='I1')
+            # plotter.set_axis_name(x_name='Time (h)', y_name='Current (I)')
+            # plotter.perform_plot()
+            # plotter.show_max_min('I1', 'hour')
+            # plotter.configure_output(show_legend=False, show_grid=True)
+            # plotter.save_figure(f'{bus}_{gd_saeb_buses_id[index]}_case_with_saeb_pv_voltvar_current')
+            # # plotter.show_figure()
+            # plotter.close_figure()
 
 
 if __name__ == '__main__':
@@ -656,9 +636,9 @@ if __name__ == '__main__':
     # 5 - bus1=G2100CH1800_N1385522_sec_5.3
     # 21 - bus1=G2100AH6800_N283651_sec_4.3
     # 43 - bus1=G2000XE9500_N283544_sec_8.3
-    gd_saeb_buses = ['G2100CH1800_N1385522_sec_5.3', 'G2100AH6800_N283651_sec_4.3', 'G2000XE9500_N283544_sec_8.3']
+    gd_saeb_buses = ['G2000XE9500_N283544_sec_8.3', 'G2100AH6800_N283651_sec_4.3', 'G2100CH1800_N1385522_sec_5.3']
     # saeb_lines = ['05410_108671UG', '05410_108669UG', '05410_108682UG']
-    gd_saeb_buses_id = ['5', '21', '43']
+    gd_saeb_buses_id = ['43', '21', '5']
 
     pv_bus = 'G2000XE9500_N283544_sec_1.3'
 
@@ -666,20 +646,20 @@ if __name__ == '__main__':
     dss_main_folder = str(Path('dss').resolve())
     dss.Basic.DataPath(dss_main_folder)
 
-    perform_case_base(dss_main_file, target_buses, transformer_buses_id)
+    # perform_case_base(dss_main_file, target_buses, transformer_buses_id)
 
     # PART 1
-    perform_case_with_pv(dss_main_file, target_buses, gd_saeb_buses, gd_saeb_buses_id, transformer_buses_id)
-    perform_case_with_pv_and_voltwatt(dss_main_file, target_buses, gd_saeb_buses, gd_saeb_buses_id,
-                                      transformer_buses_id)
-    perform_case_with_pv_and_voltvar(dss_main_file, target_buses, gd_saeb_buses, gd_saeb_buses_id, transformer_buses_id)
+    # perform_case_with_pv(dss_main_file, target_buses, gd_saeb_buses, gd_saeb_buses_id, transformer_buses_id)
+    # perform_case_with_pv_and_voltwatt(dss_main_file, target_buses, gd_saeb_buses, gd_saeb_buses_id,
+    #                                   transformer_buses_id)
+    # perform_case_with_pv_and_voltvar(dss_main_file, target_buses, gd_saeb_buses, gd_saeb_buses_id, transformer_buses_id)
 
     # PART 2
-    perform_with_saeb(dss_main_file, target_buses, gd_saeb_buses, gd_saeb_buses_id, transformer_buses_id)
-    perform_with_saeb_voltwatt(dss_main_file, target_buses, gd_saeb_buses, gd_saeb_buses_id, transformer_buses_id)
-    perform_with_saeb_voltvar(dss_main_file, target_buses, gd_saeb_buses, gd_saeb_buses_id, transformer_buses_id)
+    # perform_with_saeb(dss_main_file, target_buses, gd_saeb_buses, gd_saeb_buses_id, transformer_buses_id)
+    # perform_with_saeb_voltwatt(dss_main_file, target_buses, gd_saeb_buses, gd_saeb_buses_id, transformer_buses_id)
+    # perform_with_saeb_voltvar(dss_main_file, target_buses, gd_saeb_buses, gd_saeb_buses_id, transformer_buses_id)
 
     # PART 3
-    perform_with_saeb_pv(dss_main_file, target_buses, gd_saeb_buses, gd_saeb_buses_id, transformer_buses_id)
-    perform_with_saeb_pv_voltwatt(dss_main_file, target_buses, gd_saeb_buses, gd_saeb_buses_id, transformer_buses_id)
+    # perform_with_saeb_pv(dss_main_file, target_buses, gd_saeb_buses, gd_saeb_buses_id, transformer_buses_id)
+    # perform_with_saeb_pv_voltwatt(dss_main_file, target_buses, gd_saeb_buses, gd_saeb_buses_id, transformer_buses_id)
     perform_with_saeb_pv_voltvar(dss_main_file, target_buses, gd_saeb_buses, gd_saeb_buses_id, transformer_buses_id)
